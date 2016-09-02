@@ -18,13 +18,13 @@ import com.richard.service.CaseService;
 @RestController //<<convert return methods into json or xml responses
 public class CaseController {
 	
-	//Create Instance of CaseService
+	//Create Instance of CaseService interface
 	@Autowired
 	private CaseService caseService;
 	
 	//MAPPINGS
 	//api_Get all Cases
-	@RequestMapping(value="/api/cases/*",
+	@RequestMapping(value={"/api/cases","/api/cases/","/api/cases/*"},
 			method=RequestMethod.GET,
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection<Case_>> getAllCases(){

@@ -14,6 +14,7 @@ public class Case_ {
 	@Id //Denotes that this isPrimary Key
 	@GeneratedValue //Declares that values for this attribute created by underlying db
 	private Long id;
+	
 	private String solnName;
 	
 /*	private int temp[]=new int[2];

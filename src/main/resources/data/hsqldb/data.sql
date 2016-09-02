@@ -1,2 +1,14 @@
 INSERT INTO Case_ (solnName) VALUES ('soln2');
+INSERT INTO Case_ (solnName) VALUES ('soln3');
+INSERT INTO Case_ (solnName) VALUES ('soln3');
+INSERT INTO Case_ (solnName) VALUES ('soln3');
 INSERT INTO Case_ (solnName) VALUES ('soln8');
+INSERT INTO Case_ (solnName) VALUES ('soln6');
+INSERT INTO Case_ (solnName) VALUES ('soln8');
+INSERT INTO Case_ (solnName) VALUES ('soln1');
+INSERT INTO Case_ (solnName) VALUES ('soln9');
+INSERT INTO Case_ (solnName) VALUES ('soln8');
+INSERT INTO Case_ (solnName) VALUES ('soln1');
+INSERT INTO Case_ (solnName) VALUES ('soln8');
+INSERT INTO Case_ (solnName) VALUES ('soln9');
+INSERT INTO Case_ (solnName) VALUES ('soln1');

@@ -12,57 +12,6 @@ import com.richard.model.Case_;
 @Service
 public class CaseServiceBean implements CaseService{
 	
-//	//START
-//	//Temp: Until we connect to a DB use the seven lines below
-//	private static Long nextId;
-//	private static Map<Long, Case> caseMap;
-//		
-//	//Temp: Now lets have a method to save some autogen Cases
-//	private static Case save(Case cs){
-//		//for first element in caseMap
-//		if(caseMap ==null){
-//			caseMap = new HashMap<Long, Case>();
-//			nextId = Long.ONE;
-//		}
-//		
-//		//Existing case to update... Here we check if object already has an id, if so we just want to retrieve it by id, delete and replace with same id but new object	
-//		if(cs.getId()!=null){
-//			Case caseToMod = caseMap.get(cs.getId());
-//			if(caseToMod==null){//To me this logic block makes no sense
-//				return null;
-//			}
-//			caseMap.remove(cs.getId());
-//			caseMap.put(cs.getId(), cs);
-//			return cs;
-//		}
-//		
-//		cs.setId(nextId);
-//		nextId = nextId.add(Long.ONE);
-//		caseMap.put(cs.getId(), cs);
-//		return cs;
-//	}
-//	
-//	//Temp: delete a Case from caseMap
-//	private static boolean delete(Long id){
-//		Case caseForDeletion = caseMap.remove(id);
-//		if(caseForDeletion == null){
-//			return false;
-//		}
-//		return true;
-//	}
-//	
-//	//Temp: initialise Map of cases with above spec
-//	static {
-//		Case cs1 = new Case();
-//		cs1.setSolnName("Soln1");
-//		save(cs1);
-//		
-//		Case cs2 = new Case();
-//		cs2.setSolnName("Soln7");
-//		save(cs2);
-//	}
-//	//END
-	
 	@Autowired
 	private CaseRepository caseRepository;
 
