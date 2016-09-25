@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.richard.model.Case_;
 import com.richard.service.CaseService;
@@ -23,6 +24,8 @@ public class CaseController {
 	private CaseService caseService;
 	
 	//MAPPINGS
+	//Allow localhost on 8081 (NPM server) access (Cross Origin Issue)
+//	 @CrossOrigin(origins = "http://localhost:8081")
 	//api_Get all Cases
 	@RequestMapping(value={"/api/cases","/api/cases/","/api/cases/*"},
 			method=RequestMethod.GET,

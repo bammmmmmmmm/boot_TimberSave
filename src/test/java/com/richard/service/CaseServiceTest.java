@@ -110,6 +110,22 @@ public class CaseServiceTest extends AbstractTest{
 		
 	}
 	
+	//Test update when the id dosnt exist
+	@Test
+	public void testUpdateNotFound(){
+//		Long id = new Long(1);
+//		Case_ cs = service.findOne(id);
+//		Assert.assertNotNull("Failure - Expected not null",cs);
+//		
+//		String updatedSolnName = cs.getSolnName()+"test";
+//		cs.setSolnName(updatedSolnName);
+//		Case_ updatedCase = service.update(cs);
+//		Assert.assertNotNull("Failure - Expected update Case not to be null",updatedCase);
+//		Assert.assertEquals("Failure - Expected Id attribute to remain the same",id,updatedCase.getId());
+//		Assert.assertEquals("Failure - Expected updated solnName to match the value passed", updatedSolnName, updatedCase.getSolnName());
+		
+	}
+	
 	//Test all count mappings return the correct count
 //	@Test
 //	public void testCount(){
