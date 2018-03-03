@@ -1,3 +1,16 @@
+/**
+ * Property of Richard McCormack, and part of a rework of 2013-14 college 'TimberSave'
+ * project. This project was in conjunction with EU COST Action Group FP1101, via NUI
+ * Galway... The original thesis' app was a native Android application, with PHP api
+ * endpoints for AI. This is the Java SpringBoot api rewrite with Swagger api documen-
+ * tation.
+ * 
+ * Below is the skeleton mapping for the apis, with autowiring to CaseService child
+ * for DB mappings (Hibernate, JPA, hsqldb)
+ * 
+ * ***********Author: richard.mccormack6@hotmail.com*************
+ **/
+
 package com.richard.web.api;
 
 import java.util.Collection;
@@ -16,7 +29,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.richard.model.Case_;
 import com.richard.service.CaseService;
 
-@RestController //<<convert return methods into json or xml responses
+@RestController
+@RequestMapping("/api")
 public class CaseController {
 	
 	//Create Instance of CaseService interface
@@ -26,8 +40,9 @@ public class CaseController {
 	//MAPPINGS
 	//Allow localhost on 8081 (NPM server) access (Cross Origin Issue)
 //	 @CrossOrigin(origins = "http://localhost:8081")
-	//api_Get all Cases
-	@RequestMapping(value={"/api/cases","/api/cases/","/api/cases/*"},
+	
+	/**api_Get all Cases**/
+	@RequestMapping(value={"/cases","/cases/","/cases/*"},
 			method=RequestMethod.GET,
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection<Case_>> getAllCases(){
@@ -37,8 +52,8 @@ public class CaseController {
 		return new ResponseEntity<Collection<Case_>>(cases,HttpStatus.OK);		
 	}
 	
-	//api_Get count of all Cases
-	@RequestMapping(value="/api/cases/count",
+	/**api_Get count of all Cases**/
+	@RequestMapping(value="/cases/count",
 			method=RequestMethod.GET,
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Long> getCasesCount(){
@@ -48,8 +63,8 @@ public class CaseController {
 		return new ResponseEntity<Long>(casesTotal,HttpStatus.OK);		
 	}
 	
-	//api_Get Case by case_id
-	@RequestMapping(value="/api/cases/{id}",
+	/**api_Get Case by case_id**/
+	@RequestMapping(value="/cases/{id}",
 			method=RequestMethod.GET,
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Case_> getCaseById(@PathVariable("id") Long id){
@@ -63,7 +78,7 @@ public class CaseController {
 	}
 	
 	//api_Update Case by case_id... Note: Must have the id in the url mapping AND the full JSON object too to succeed. 
-	@RequestMapping(value="/api/cases/{id}",
+	@RequestMapping(value="/cases",
 			method=RequestMethod.PUT,
 			consumes=MediaType.APPLICATION_JSON_VALUE,
 			produces=MediaType.APPLICATION_JSON_VALUE)
@@ -77,8 +92,8 @@ public class CaseController {
 		return new ResponseEntity<Case_>(updatedCs,HttpStatus.OK);		
 	}	
 	
-	//api_Create new Case... NOTE: When testing this, client must set in header Content-Type as 'application/json'
-	@RequestMapping(value="/api/cases",
+	/**api_Create new Case... NOTE: When testing this, client must set in header Content-Type as 'application/json'**/
+	@RequestMapping(value="/cases",
 			method=RequestMethod.POST,
 			consumes=MediaType.APPLICATION_JSON_VALUE,
 			produces=MediaType.APPLICATION_JSON_VALUE)
@@ -89,8 +104,8 @@ public class CaseController {
 		return new ResponseEntity<Case_>(savedCase,HttpStatus.CREATED);		
 	}
 	
-	//api_Delete Case byId... Note: Must have the id in the url mapping AND the full JSON object too to succeed.
-	@RequestMapping(value="/api/cases/{id}",
+	/**api_Delete Case byId... Note: Must have the id in the url mapping AND the full JSON object too to succeed.**/
+	@RequestMapping(value="/cases/{id}",
 			method=RequestMethod.DELETE,
 			consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Case_> deleteCase(@PathVariable("id") Long id, @RequestBody Case_ cs){//converted implicitly from json to java case object if fields match
